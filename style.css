@@ -7,6 +7,52 @@
 * { 
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root { 
+    --font01: 'Baloo Da 2', cursive;
+    --font02: 'Josefin Slab', serif;
+    --font03: 'Mulish', sans-serif;
+}
+
+.hamburguer { 
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.line { 
+    width: 100%;
+    height: .1rem;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 2px black;
+    transition: transform 1s;
+}
+
+.show-menu #line1 {
+    transform: rotate(45deg) translate(.3rem, .45rem);
+}
+
+.show-menu #line2 { 
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3 { 
+    transform: rotate(-45deg) translate(.3rem, -.45rem);;
+}
+
+.show-menu .hamburguer { 
+    right: 4rem;
 }
 
 header { 
@@ -27,7 +73,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    opacity: 0.8;
     animation: zoom 10s;
 }
 
@@ -49,7 +95,7 @@ header {
 .banner > h1 { 
     color: white;
     font-size: 3.5em;
-    font-family:'Baloo Da 2', cursive;
+    font-family: var(--font01);
     font-weight: 300;
     text-shadow: 0.2rem 0.3rem 0.2rem rgba(0, 0, 0, 0.4);
     line-height: 3.5rem;
@@ -58,18 +104,8 @@ header {
     opacity: 0;
 }
 
-@keyframes moveBanner { 
-    0% { 
-        transform: translateY(10rem) rotateY(-35deg);
-    }
-    100% {
-        transform: translateY(0) rotateY(0);
-        opacity: 1;
-     }
-}
-
 .banner > p { 
-    font-family: 'Josefin Slab', serif;
+    font-family: var(--font02);
     color: white;
     font-size: 2rem;
     text-shadow: 0.2rem 0.3rem rgba(0, 0, 0, 0.4);
@@ -79,7 +115,7 @@ header {
 }
 
 .banner > button { 
-    font-family: 'Mulish', sans-serif;
+    font-family: var(--font03);
     color: white;
     letter-spacing: .2rem;
     text-transform: uppercase;
@@ -95,7 +131,77 @@ header {
 }
 
 button:hover { 
-    opacity: 0.8;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+@keyframes moveBanner { 
+    0% { 
+        transform: translateY(10rem) rotateY(-35deg);
+    }
+    100% {
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+     }
+}
 
+.sidebar { 
+    width: 20rem;
+    background-color: rgba(138, 186, 201, 0.938);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    border-radius: 320px 0px 0px 320px;
+    transition: all 1.2s;
+}
+
+.show-menu .sidebar {
+    right: 0;
+}
+
+.menu { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-iten { 
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.menu-link { 
+    font-family: var(--font03);
+    font-size: 2rem;
+    color: rgb(10, 17, 121);
+    transition: color 0.5s;
+}
+
+.menu-link:hover { 
+    color:#7836a8;
+}
+
+.social-media { 
+    position: absolute;
+    bottom: 8rem;
+    left: 7rem;
+    width: 66%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i { 
+    color: rgb(1, 1, 10);
+    height: 2.5rem;
+    width: 1rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media i:hover { 
+    cursor: pointer;
+}
