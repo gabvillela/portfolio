@@ -17,6 +17,12 @@
     --font03: 'Mulish', sans-serif;
 }
 
+@media (max-width: 767px) {
+    body { 
+        overflow-x: hidden;
+    }    
+}
+    
 html { 
     scroll-behavior: smooth;
     overflow-x: hidden;
